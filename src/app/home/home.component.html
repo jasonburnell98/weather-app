@@ -1,0 +1,37 @@
+<div class="container" fxLayout="column" fxLayout.lt-md="column" fxLayoutGap="20px" @fadeIn role="main">
+    <h1>Current Weather in Philadelphia, PA</h1>
+    <div *ngIf="currentConditions" fxLayout="row" fxLayoutAlign="center center">
+        <p>{{ currentConditions.WeatherText }}</p>
+        <img [src]="'https://developer.accuweather.com/sites/default/files/' + (currentConditions.WeatherIcon < 10 ? '0' : '') + currentConditions.WeatherIcon + '-s.png'"
+            alt="Weather Icon">
+    </div>
+    <div class="row">
+        <h2>Five Day Forecast</h2>
+        <div class="col-md-2" *ngFor="let forecast of fiveDayForecast" fxLayout="row" fxLayoutAlign="center center">
+            <p>{{ forecast.Date | date }}</p>
+            <p>{{ forecast.Day.IconPhrase }}</p>
+            <img [src]="'https://developer.accuweather.com/sites/default/files/' + (forecast.Day.Icon < 10 ? '0' : '') + forecast.Day.Icon + '-s.png'"
+                alt="{{ forecast.Day.IconPhrase }} icon">
+        </div>
+    </div>
+    <div>
+        <mat-form-field>
+            <input matInput #cityInput type="text" placeholder="Search City"
+                aria-label="City Search">
+        </mat-form-field>
+        <button (click)="searchCity(cityInput.value)" mat-raised-button color="primary">Search</button>
+    </div>
+    <div *ngIf="searchResult" fxLayout="column">
+        <p><a href="location/{{searchResult.Key}}" target="_blank">{{ searchResult.LocalizedName }}</a></p>
+        <button (click)="addToFavorites(searchResult)" mat-raised-button color="accent">Add to Favorites</button>
+    </div>
+    <div *ngIf="!searchResult">
+        No record found!
+    </div>
+    <div>
+        <h2>Favorites</h2>
+        <div *ngFor="let favorite of favorites" fxLayout="column">
+            <p><a href="location/{{favorite.Key}}" target="_blank">{{ favorite.LocalizedName }}</a></p>
+        </div>
+    </div>
+</div>

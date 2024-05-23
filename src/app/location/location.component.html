@@ -1,0 +1,26 @@
+<div class="container"> 
+    <h1>Weather Details</h1>
+    <div *ngIf="currentConditions">
+        <p>{{ currentConditions.WeatherText }}</p>
+        <img [src]="'https://developer.accuweather.com/sites/default/files/' + (currentConditions.WeatherIcon < 10 ? '0' : '') + currentConditions.WeatherIcon + '-s.png'"
+            alt="Weather Icon">
+    </div>
+    <div class="row">
+        <h2>Daily Forecast</h2>
+        <div class="col-md-2" *ngFor="let forecast of dailyForecast">
+            <p>{{ forecast.Date | date }}</p>
+            <p>{{ forecast.Day.IconPhrase }}</p>
+            <img [src]="'https://developer.accuweather.com/sites/default/files/' + (forecast.Day.Icon < 10 ? '0' : '') + forecast.Day.Icon + '-s.png'"
+                alt="{{ forecast.Day.IconPhrase }} icon">
+        </div>
+    </div>
+    <div class="row">
+        <h2>Hourly Forecast</h2>
+        <div class="col-md-2" *ngFor="let forecast of hourlyForecast">
+            <p>{{ forecast.DateTime | date:'shortTime' }}</p>
+            <p>{{ forecast.IconPhrase }}</p>
+            <img [src]="'https://developer.accuweather.com/sites/default/files/' + (forecast.WeatherIcon < 10 ? '0' : '') + forecast.WeatherIcon + '-s.png'"
+                alt="{{ forecast.IconPhrase }} icon">
+        </div>
+    </div>
+</div>

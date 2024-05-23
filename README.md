@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ![img1](./image/Weaterh_home.png)
 ![img2](./image/Philadelphia.png)
-![img3](./image/New York.png)
+![img3](./image/New%20York.png)
 ![img4](./image/Delaware.png)
 
 ## Development server

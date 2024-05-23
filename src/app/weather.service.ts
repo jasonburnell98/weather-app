@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API_KEY = 'te8X5YKFcBAiphPEBog7Ju9ykq0q9CxW';
+const API_KEY = 'rH4y5j0LMn7vOvMacDPjqSCb8o6N8hr4';
 const BASE_URL = 'http://dataservice.accuweather.com/';
 
 @Injectable({

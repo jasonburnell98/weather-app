@@ -20,6 +20,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class HomeComponent implements OnInit {
   currentConditions: any;
   fiveDayForecast: any;
+  hourlyForecast: any;
   favorites: any[] = [];
   searchResult: any;
   searchValue:any;
@@ -37,6 +38,9 @@ export class HomeComponent implements OnInit {
     });
     this.weatherService.getFiveDayForecast(locationKey).subscribe(data => {
       this.fiveDayForecast = data.DailyForecasts;
+    });
+    this.weatherService.getHourlyForecast(locationKey).subscribe(data => {
+      this.hourlyForecast = data;
     });
   }
 

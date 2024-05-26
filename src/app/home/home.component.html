@@ -14,6 +14,15 @@
                 alt="{{ forecast.Day.IconPhrase }} icon">
         </div>
     </div>
+    <div class="row">
+        <h2>Hourly Forecast</h2>
+        <div class="col-md-2" *ngFor="let forecast of hourlyForecast">
+            <p>{{ forecast.DateTime | date:'shortTime' }}</p>
+            <p>{{ forecast.IconPhrase }}</p>
+            <img [src]="'https://developer.accuweather.com/sites/default/files/' + (forecast.WeatherIcon < 10 ? '0' : '') + forecast.WeatherIcon + '-s.png'"
+                alt="{{ forecast.IconPhrase }} icon">
+        </div>
+    </div>
     <div>
         <mat-form-field>
             <input matInput #cityInput type="text" placeholder="Search City"

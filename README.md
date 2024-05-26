@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
-![img1](./image/Weaterh_home.png)
+![img1](./image/Weather_home.png)
 ![img2](./image/Philadelphia.png)
 ![img3](./image/New%20York.png)
 ![img4](./image/Delaware.png)
